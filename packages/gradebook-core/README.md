@@ -5,7 +5,7 @@
 ## Установка
 
 ```bash
-pip install --index-url https://test.pypi.org/simple/gradebook-core
+pip install -i https://test.pypi.org/simple/ gradebook-core
 ```
 
 ## Использование

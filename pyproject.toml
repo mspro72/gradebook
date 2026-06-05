@@ -3,7 +3,8 @@ name = "gradebook"
 version = "0.1.0"
 description = ""
 authors = [
-    {name = "calexzz"}
+    {name = "calexzz"},
+    {name = "mspro72"}
 ]
 license = "MIT"
 readme = "README.md"
@@ -12,7 +13,8 @@ dependencies = [
     "flask (>=3.1.3,<4.0.0)",
     "flask-sqlalchemy (>=3.1.1,<4.0.0)",
     "psycopg2-binary (>=2.9.12,<3.0.0)",
-    "gradebook-core @ file:///Users/calexzz/Desktop/FilesUni/gradebook/packages/gradebook-core"
+    "flask-cors (>=5.0.0,<6.0.0)",
+    "gradebook-core @ file:///home/mspro/git/gradebook/packages/gradebook-core",
 ]
 
 [tool.poetry]
@@ -20,6 +22,7 @@ package-mode = false
 
 [tool.poetry.dependencies]
 gradebook-core = {develop = true}
+
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"

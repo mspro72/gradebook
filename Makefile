@@ -1,10 +1,10 @@
 .PHONY: compose-up compose-down run test coverage check
 
 compose-up:
-	docker compose -f infra/compose.yaml up -d
+	docker compose up -d
 
 compose-down:
-	docker compose -f infra/compose.yaml down
+	docker compose down
 
 run:
 	poetry run python run.py

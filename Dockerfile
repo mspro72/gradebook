@@ -6,11 +6,10 @@ RUN pip install poetry
 
 COPY pyproject.toml poetry.lock ./
 
-RUN poetry config virtualenvs.create false \
-    && poetry install --without dev --no-interaction
+RUN poetry install --without dev --no-root --no-interaction
 
 COPY . .
 
 EXPOSE 5000
 
-CMD ["python", "run.py"]
+CMD ["poetry", "run", "python", "run.py"]

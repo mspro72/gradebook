@@ -200,6 +200,20 @@ flask = ">=2.2.5"
 sqlalchemy = ">=2.0.16"
 
 [[package]]
+name = "gradebook-core"
+version = "0.1.1"
+description = "Core logic for GradeBook: models, validation, statistics"
+optional = false
+python-versions = ">=3.10"
+groups = ["main"]
+files = []
+develop = true
+
+[package.source]
+type = "directory"
+url = "packages/gradebook-core"
+
+[[package]]
 name = "greenlet"
 version = "3.5.1"
 description = "Lightweight in-process concurrent programming"
@@ -726,4 +740,4 @@ watchdog = ["watchdog (>=2.3)"]
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.11"
-content-hash = "47f048be5baf78f6f8d260d4735f7ba52499b5db3064243f77e3d2c5ca157a42"
+content-hash = "a194ef26f17e2c6b6bb12f387a4a8c0b67565f6f4e5a447ffb63cd881b309806"

@@ -14,5 +14,5 @@ class TestingConfig(Config):
     TESTING = True
     SQLALCHEMY_DATABASE_URI = os.getenv(
         "TEST_DATABASE_URL",
-        "postgresql://gradebook:gradebook@localhost:5432/gradebook_test"
+        "postgresql://gradebook:gradebook@localhost:5432/gradebook"
     )

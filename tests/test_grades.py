@@ -27,18 +27,18 @@ def test_create_grade(client, student, subject):
     response = client.post("/grades/", json={
         "student_id": student["id"],
         "subject_id": subject["id"],
-        "value": 85.0,
+        "value": 4.0,
     })
     assert response.status_code == 201
     data = response.get_json()
-    assert data["value"] == 85.0
+    assert data["value"] == 4.0
     assert data["student_id"] == student["id"]
     assert data["subject_id"] == subject["id"]
 
 
 def test_create_grade_missing_fields(client):
     """Возвращает 400 если не переданы обязательные поля."""
-    response = client.post("/grades/", json={"value": 85.0})
+    response = client.post("/grades/", json={"value": 4.0})
     assert response.status_code == 400
 
 
@@ -47,7 +47,7 @@ def test_create_grade_invalid_value(client, student, subject):
     response = client.post("/grades/", json={
         "student_id": student["id"],
         "subject_id": subject["id"],
-        "value": 150.0,
+        "value": 6.0,
     })
     assert response.status_code == 422
 
@@ -57,7 +57,7 @@ def test_get_grade(client, student, subject):
     created = client.post("/grades/", json={
         "student_id": student["id"],
         "subject_id": subject["id"],
-        "value": 85.0,
+        "value": 4.0,
     })
     grade_id = created.get_json()["id"]
     response = client.get(f"/grades/{grade_id}")
@@ -76,12 +76,12 @@ def test_update_grade(client, student, subject):
     created = client.post("/grades/", json={
         "student_id": student["id"],
         "subject_id": subject["id"],
-        "value": 85.0,
+        "value": 4.0,
     })
     grade_id = created.get_json()["id"]
-    response = client.put(f"/grades/{grade_id}", json={"value": 90.0})
+    response = client.put(f"/grades/{grade_id}", json={"value": 5.0})
     assert response.status_code == 200
-    assert response.get_json()["value"] == 90.0
+    assert response.get_json()["value"] == 5.0
 
 
 def test_delete_grade(client, student, subject):
@@ -89,7 +89,7 @@ def test_delete_grade(client, student, subject):
     created = client.post("/grades/", json={
         "student_id": student["id"],
         "subject_id": subject["id"],
-        "value": 85.0,
+        "value": 4.0,
     })
     grade_id = created.get_json()["id"]
     response = client.delete(f"/grades/{grade_id}")

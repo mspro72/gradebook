@@ -33,8 +33,8 @@ def create_grade() -> tuple[Response, int]:
         return jsonify({"error": "student_id, subject_id and value are required"}), 400
 
     value = data["value"]
-    if not isinstance(value, (int, float)) or not (0 <= value <= 100):
-        return jsonify({"error": "value must be a number between 0 and 100"}), 422
+    if not isinstance(value, (int, float)) or not (1 <= value <= 5):
+        return jsonify({"error": "value must be a number between 1 and 5"}), 422
 
     Student.query.get_or_404(data["student_id"])
     Subject.query.get_or_404(data["subject_id"])
@@ -60,8 +60,8 @@ def update_grade(grade_id: int) -> Response:
     data = request.get_json()
     if "value" in data:
         value = data["value"]
-        if not isinstance(value, (int, float)) or not (0 <= value <= 100):
-            return jsonify({"error": "value must be between 0 and 100"}), 422
+        if not isinstance(value, (int, float)) or not (1 <= value <= 5):
+            return jsonify({"error": "value must be between 1 and 5"}), 422
         grade.value = float(value)
     db.session.commit()
     return jsonify(grade.to_dict())
